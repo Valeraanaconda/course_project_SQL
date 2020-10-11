@@ -22,7 +22,7 @@ namespace SQl_Course_project
         public Add_apartament()
         {
             InitializeComponent();
-            state.Items.Add("продажа");
+            state.Items.Add("Продажа");
             state.Items.Add("Здача в аренду");
 
         }
@@ -47,6 +47,7 @@ namespace SQl_Course_project
                 full_name.Text = "";
 
             }
+            state_p = 0;
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)

@@ -35,5 +35,12 @@ namespace SQl_Course_project
             w.Show();
             Close();
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Deal w = new Deal();
+            w.Show();
+            Close();
+        }
     }
 }

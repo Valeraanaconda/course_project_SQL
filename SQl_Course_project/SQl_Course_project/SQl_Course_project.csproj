@@ -82,6 +82,9 @@
     <Compile Include="client.cs">
       <DependentUpon>estate_agancy.tt</DependentUpon>
     </Compile>
+    <Compile Include="Deal.xaml.cs">
+      <DependentUpon>Deal.xaml</DependentUpon>
+    </Compile>
     <Compile Include="deal_with_appartment.cs">
       <DependentUpon>estate_agancy.tt</DependentUpon>
     </Compile>
@@ -125,6 +128,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Add_worker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Deal.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

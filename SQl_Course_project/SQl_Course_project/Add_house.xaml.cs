@@ -40,7 +40,7 @@ namespace SQl_Course_project
             if (state_h.SelectedValue.ToString() == "Здача в аренду") state_ho = 2;
             using (Estate_agancyEntities1 db = new Estate_agancyEntities1())
             {
-                db.Add_house(Convert.ToInt32(room.Text),Convert.ToInt32(floor.Text),Convert.ToInt32(area_h.Text),Convert.ToDouble(area_pl.Text),name.Text, addre.Text, Convert.ToInt32(globalTrash.rand.Next(100000000, 999999999)), state_ho);
+                db.Add_house(Convert.ToInt32(room.Text),Convert.ToInt32(floor.Text),Convert.ToInt32(area_h.Text),Convert.ToDouble(area_pl.Text),name.Text, addre.Text, Convert.ToInt32(globalTrash.rand.Next(100000000, 999999999)), state_ho,Convert.ToDouble(price.Text));
 
                 db.SaveChanges();
                 MessageBox.Show("Дом успешно добавлен");

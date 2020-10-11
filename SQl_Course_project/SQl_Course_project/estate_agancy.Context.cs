@@ -170,7 +170,7 @@ namespace SQl_Course_project
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Add_deal_with_house", cadastral_numberParameter, number_of_roomsParameter, number_of_floorParameter, area_hParameter, customerParameter, sallerParameter, priceParameter);
         }
     
-        public virtual int Add_house(Nullable<int> number_of_rooms, Nullable<int> number_of_floor, Nullable<int> area_h, Nullable<double> area_plot, string owner_h, string address_h, Nullable<int> cadastral_number, Nullable<int> state_h)
+        public virtual int Add_house(Nullable<int> number_of_rooms, Nullable<int> number_of_floor, Nullable<int> area_h, Nullable<double> area_plot, string owner_h, string address_h, Nullable<int> cadastral_number, Nullable<int> state_h, Nullable<double> price)
         {
             var number_of_roomsParameter = number_of_rooms.HasValue ?
                 new ObjectParameter("number_of_rooms", number_of_rooms) :
@@ -204,7 +204,11 @@ namespace SQl_Course_project
                 new ObjectParameter("state_h", state_h) :
                 new ObjectParameter("state_h", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Add_house", number_of_roomsParameter, number_of_floorParameter, area_hParameter, area_plotParameter, owner_hParameter, address_hParameter, cadastral_numberParameter, state_hParameter);
+            var priceParameter = price.HasValue ?
+                new ObjectParameter("price", price) :
+                new ObjectParameter("price", typeof(double));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Add_house", number_of_roomsParameter, number_of_floorParameter, area_hParameter, area_plotParameter, owner_hParameter, address_hParameter, cadastral_numberParameter, state_hParameter, priceParameter);
         }
     
         public virtual int Add_worker(string position, Nullable<int> password, string full_name)

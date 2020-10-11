@@ -15,6 +15,10 @@ using System.Windows.Shapes;
 
 namespace SQl_Course_project
 {
+    class globalTrash
+    {
+        public static Random rand = new Random();
+    }
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
@@ -23,6 +27,13 @@ namespace SQl_Course_project
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            overview_db w = new overview_db();
+            w.Show();
+            Close();
         }
     }
 }

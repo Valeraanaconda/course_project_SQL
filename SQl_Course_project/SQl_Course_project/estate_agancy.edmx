@@ -1,0 +1,447 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище Estate_agancyModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="apartment">
+          <Key>
+            <PropertyRef Name="ID_apartment" />
+          </Key>
+          <Property Name="ID_apartment" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="area_ap" Type="float" />
+          <Property Name="number_of_rooms" Type="int" />
+          <Property Name="price" Type="float" />
+          <Property Name="state_p" Type="int" />
+          <Property Name="owner_ap" Type="char" MaxLength="30" />
+          <Property Name="address_ap" Type="char" MaxLength="20" />
+          <Property Name="number_of_balconies" Type="int" />
+          <Property Name="cadastral_number" Type="int" />
+        </EntityType>
+        <EntityType Name="client">
+          <Key>
+            <PropertyRef Name="ID_client" />
+          </Key>
+          <Property Name="ID_client" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Full_name" Type="char" MaxLength="30" />
+          <Property Name="passport_ID" Type="char" MaxLength="8" />
+          <Property Name="issued_by" Type="char" MaxLength="20" />
+          <Property Name="year_of_birth" Type="int" />
+          <Property Name="date_of_birth" Type="int" />
+          <Property Name="month_of_birth" Type="int" />
+          <Property Name="place_of_residence" Type="char" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="deal_with_appartment">
+          <Key>
+            <PropertyRef Name="ID_deal" />
+          </Key>
+          <Property Name="ID_deal" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cadastral_number" Type="int" />
+          <Property Name="area_ap" Type="float" />
+          <Property Name="number_of_balconies" Type="int" />
+          <Property Name="number_of_rooms" Type="int" />
+          <Property Name="customer" Type="char" MaxLength="30" />
+          <Property Name="saller" Type="char" MaxLength="30" />
+          <Property Name="price" Type="float" />
+        </EntityType>
+        <EntityType Name="deal_with_house">
+          <Key>
+            <PropertyRef Name="ID_deal" />
+          </Key>
+          <Property Name="ID_deal" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cadastral_number" Type="int" />
+          <Property Name="number_of_rooms" Type="int" />
+          <Property Name="number_of_floor" Type="int" />
+          <Property Name="area_h" Type="float" />
+          <Property Name="customer" Type="char" MaxLength="30" />
+          <Property Name="saller" Type="char" MaxLength="30" />
+          <Property Name="price" Type="float" />
+        </EntityType>
+        <EntityType Name="house">
+          <Key>
+            <PropertyRef Name="ID_house" />
+          </Key>
+          <Property Name="ID_house" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="number_of_rooms" Type="int" />
+          <Property Name="number_of_floor" Type="int" />
+          <Property Name="area_h" Type="float" />
+          <Property Name="area_plot" Type="float" />
+          <Property Name="owner_h" Type="char" MaxLength="30" />
+          <Property Name="address_h" Type="char" MaxLength="20" />
+          <Property Name="cadastral_number" Type="int" />
+          <Property Name="price" Type="float" />
+          <Property Name="state_h" Type="int" />
+        </EntityType>
+        <EntityType Name="worker_c">
+          <Key>
+            <PropertyRef Name="ID_worker" />
+          </Key>
+          <Property Name="ID_worker" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="full_name" Type="char" MaxLength="30" />
+          <Property Name="position" Type="char" MaxLength="10" />
+          <Property Name="password_w" Type="int" />
+        </EntityType>
+        <Function Name="Add_apartment" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="area_ap" Type="float" Mode="In" />
+          <Parameter Name="number_of_rooms" Type="int" Mode="In" />
+          <Parameter Name="price" Type="float" Mode="In" />
+          <Parameter Name="owner_ap" Type="char" Mode="In" />
+          <Parameter Name="address_ap" Type="char" Mode="In" />
+          <Parameter Name="number_of_balconies" Type="int" Mode="In" />
+          <Parameter Name="cadastral_number" Type="int" Mode="In" />
+          <Parameter Name="state" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Add_client" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Full_name" Type="char" Mode="In" />
+          <Parameter Name="passport_ID" Type="char" Mode="In" />
+          <Parameter Name="issued_by" Type="char" Mode="In" />
+          <Parameter Name="year_of_birth" Type="int" Mode="In" />
+          <Parameter Name="date_of_birth" Type="int" Mode="In" />
+          <Parameter Name="month_of_birth" Type="int" Mode="In" />
+          <Parameter Name="place_of_residence" Type="char" Mode="In" />
+        </Function>
+        <Function Name="Add_deal_with_appartent" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cadastral_number" Type="int" Mode="In" />
+          <Parameter Name="area_ap" Type="float" Mode="In" />
+          <Parameter Name="number_of_balcones" Type="int" Mode="In" />
+          <Parameter Name="number_of_rooms" Type="int" Mode="In" />
+          <Parameter Name="customer" Type="char" Mode="In" />
+          <Parameter Name="saller" Type="char" Mode="In" />
+          <Parameter Name="price" Type="float" Mode="In" />
+        </Function>
+        <Function Name="Add_deal_with_house" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cadastral_number" Type="int" Mode="In" />
+          <Parameter Name="number_of_rooms" Type="int" Mode="In" />
+          <Parameter Name="number_of_floor" Type="int" Mode="In" />
+          <Parameter Name="area_h" Type="float" Mode="In" />
+          <Parameter Name="customer" Type="char" Mode="In" />
+          <Parameter Name="saller" Type="char" Mode="In" />
+          <Parameter Name="price" Type="float" Mode="In" />
+        </Function>
+        <Function Name="Add_house" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="number_of_rooms" Type="int" Mode="In" />
+          <Parameter Name="number_of_floor" Type="int" Mode="In" />
+          <Parameter Name="area_h" Type="int" Mode="In" />
+          <Parameter Name="area_plot" Type="float" Mode="In" />
+          <Parameter Name="owner_h" Type="char" Mode="In" />
+          <Parameter Name="address_h" Type="char" Mode="In" />
+          <Parameter Name="cadastral_number" Type="int" Mode="In" />
+          <Parameter Name="state_h" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Add_worker" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="position" Type="char" Mode="In" />
+          <Parameter Name="password" Type="int" Mode="In" />
+          <Parameter Name="full_name" Type="char" Mode="In" />
+        </Function>
+        <Function Name="Delete_apaetament" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cadastral_number" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Delete_client" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Delete_deal_with_appartment" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Delete_deal_with_house" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Delete_house" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Delete_worker" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="Хранилище Estate_agancyModelContainer">
+          <EntitySet Name="apartment" EntityType="Self.apartment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="client" EntityType="Self.client" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="deal_with_appartment" EntityType="Self.deal_with_appartment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="deal_with_house" EntityType="Self.deal_with_house" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="house" EntityType="Self.house" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="worker_c" EntityType="Self.worker_c" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Estate_agancyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="apartment">
+          <Key>
+            <PropertyRef Name="ID_apartment" />
+          </Key>
+          <Property Name="ID_apartment" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="area_ap" Type="Double" />
+          <Property Name="number_of_rooms" Type="Int32" />
+          <Property Name="price" Type="Double" />
+          <Property Name="state_p" Type="Int32" />
+          <Property Name="owner_ap" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+          <Property Name="address_ap" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="number_of_balconies" Type="Int32" />
+          <Property Name="cadastral_number" Type="Int32" />
+        </EntityType>
+        <EntityType Name="client">
+          <Key>
+            <PropertyRef Name="ID_client" />
+          </Key>
+          <Property Name="ID_client" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Full_name" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+          <Property Name="passport_ID" Type="String" MaxLength="8" FixedLength="true" Unicode="false" />
+          <Property Name="issued_by" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="year_of_birth" Type="Int32" />
+          <Property Name="date_of_birth" Type="Int32" />
+          <Property Name="month_of_birth" Type="Int32" />
+          <Property Name="place_of_residence" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="deal_with_appartment">
+          <Key>
+            <PropertyRef Name="ID_deal" />
+          </Key>
+          <Property Name="ID_deal" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cadastral_number" Type="Int32" />
+          <Property Name="area_ap" Type="Double" />
+          <Property Name="number_of_balconies" Type="Int32" />
+          <Property Name="number_of_rooms" Type="Int32" />
+          <Property Name="customer" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+          <Property Name="saller" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+          <Property Name="price" Type="Double" />
+        </EntityType>
+        <EntityType Name="deal_with_house">
+          <Key>
+            <PropertyRef Name="ID_deal" />
+          </Key>
+          <Property Name="ID_deal" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cadastral_number" Type="Int32" />
+          <Property Name="number_of_rooms" Type="Int32" />
+          <Property Name="number_of_floor" Type="Int32" />
+          <Property Name="area_h" Type="Double" />
+          <Property Name="customer" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+          <Property Name="saller" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+          <Property Name="price" Type="Double" />
+        </EntityType>
+        <EntityType Name="house">
+          <Key>
+            <PropertyRef Name="ID_house" />
+          </Key>
+          <Property Name="ID_house" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="number_of_rooms" Type="Int32" />
+          <Property Name="number_of_floor" Type="Int32" />
+          <Property Name="area_h" Type="Double" />
+          <Property Name="area_plot" Type="Double" />
+          <Property Name="owner_h" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+          <Property Name="address_h" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="cadastral_number" Type="Int32" />
+          <Property Name="price" Type="Double" />
+          <Property Name="state_h" Type="Int32" />
+        </EntityType>
+        <EntityType Name="worker_c">
+          <Key>
+            <PropertyRef Name="ID_worker" />
+          </Key>
+          <Property Name="ID_worker" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="full_name" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+          <Property Name="position" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="password_w" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="Estate_agancyEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="apartment" EntityType="Self.apartment" />
+          <EntitySet Name="client" EntityType="Self.client" />
+          <EntitySet Name="deal_with_appartment" EntityType="Self.deal_with_appartment" />
+          <EntitySet Name="deal_with_house" EntityType="Self.deal_with_house" />
+          <EntitySet Name="house" EntityType="Self.house" />
+          <EntitySet Name="worker_c" EntityType="Self.worker_c" />
+          <FunctionImport Name="Add_apartment">
+            <Parameter Name="area_ap" Mode="In" Type="Double" />
+            <Parameter Name="number_of_rooms" Mode="In" Type="Int32" />
+            <Parameter Name="price" Mode="In" Type="Double" />
+            <Parameter Name="owner_ap" Mode="In" Type="String" />
+            <Parameter Name="address_ap" Mode="In" Type="String" />
+            <Parameter Name="number_of_balconies" Mode="In" Type="Int32" />
+            <Parameter Name="cadastral_number" Mode="In" Type="Int32" />
+            <Parameter Name="state" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Add_client">
+            <Parameter Name="Full_name" Mode="In" Type="String" />
+            <Parameter Name="passport_ID" Mode="In" Type="String" />
+            <Parameter Name="issued_by" Mode="In" Type="String" />
+            <Parameter Name="year_of_birth" Mode="In" Type="Int32" />
+            <Parameter Name="date_of_birth" Mode="In" Type="Int32" />
+            <Parameter Name="month_of_birth" Mode="In" Type="Int32" />
+            <Parameter Name="place_of_residence" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Add_deal_with_appartent">
+            <Parameter Name="cadastral_number" Mode="In" Type="Int32" />
+            <Parameter Name="area_ap" Mode="In" Type="Double" />
+            <Parameter Name="number_of_balcones" Mode="In" Type="Int32" />
+            <Parameter Name="number_of_rooms" Mode="In" Type="Int32" />
+            <Parameter Name="customer" Mode="In" Type="String" />
+            <Parameter Name="saller" Mode="In" Type="String" />
+            <Parameter Name="price" Mode="In" Type="Double" />
+          </FunctionImport>
+          <FunctionImport Name="Add_deal_with_house">
+            <Parameter Name="cadastral_number" Mode="In" Type="Int32" />
+            <Parameter Name="number_of_rooms" Mode="In" Type="Int32" />
+            <Parameter Name="number_of_floor" Mode="In" Type="Int32" />
+            <Parameter Name="area_h" Mode="In" Type="Double" />
+            <Parameter Name="customer" Mode="In" Type="String" />
+            <Parameter Name="saller" Mode="In" Type="String" />
+            <Parameter Name="price" Mode="In" Type="Double" />
+          </FunctionImport>
+          <FunctionImport Name="Add_house">
+            <Parameter Name="number_of_rooms" Mode="In" Type="Int32" />
+            <Parameter Name="number_of_floor" Mode="In" Type="Int32" />
+            <Parameter Name="area_h" Mode="In" Type="Int32" />
+            <Parameter Name="area_plot" Mode="In" Type="Double" />
+            <Parameter Name="owner_h" Mode="In" Type="String" />
+            <Parameter Name="address_h" Mode="In" Type="String" />
+            <Parameter Name="cadastral_number" Mode="In" Type="Int32" />
+            <Parameter Name="state_h" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Add_worker">
+            <Parameter Name="position" Mode="In" Type="String" />
+            <Parameter Name="password" Mode="In" Type="Int32" />
+            <Parameter Name="full_name" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Delete_apaetament">
+            <Parameter Name="cadastral_number" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Delete_client">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Delete_deal_with_appartment">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Delete_deal_with_house">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Delete_house">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Delete_worker">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище Estate_agancyModelContainer" CdmEntityContainer="Estate_agancyEntities1">
+          <EntitySetMapping Name="apartment">
+            <EntityTypeMapping TypeName="Estate_agancyModel.apartment">
+              <MappingFragment StoreEntitySet="apartment">
+                <ScalarProperty Name="ID_apartment" ColumnName="ID_apartment" />
+                <ScalarProperty Name="area_ap" ColumnName="area_ap" />
+                <ScalarProperty Name="number_of_rooms" ColumnName="number_of_rooms" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="state_p" ColumnName="state_p" />
+                <ScalarProperty Name="owner_ap" ColumnName="owner_ap" />
+                <ScalarProperty Name="address_ap" ColumnName="address_ap" />
+                <ScalarProperty Name="number_of_balconies" ColumnName="number_of_balconies" />
+                <ScalarProperty Name="cadastral_number" ColumnName="cadastral_number" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="client">
+            <EntityTypeMapping TypeName="Estate_agancyModel.client">
+              <MappingFragment StoreEntitySet="client">
+                <ScalarProperty Name="ID_client" ColumnName="ID_client" />
+                <ScalarProperty Name="Full_name" ColumnName="Full_name" />
+                <ScalarProperty Name="passport_ID" ColumnName="passport_ID" />
+                <ScalarProperty Name="issued_by" ColumnName="issued_by" />
+                <ScalarProperty Name="year_of_birth" ColumnName="year_of_birth" />
+                <ScalarProperty Name="date_of_birth" ColumnName="date_of_birth" />
+                <ScalarProperty Name="month_of_birth" ColumnName="month_of_birth" />
+                <ScalarProperty Name="place_of_residence" ColumnName="place_of_residence" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="deal_with_appartment">
+            <EntityTypeMapping TypeName="Estate_agancyModel.deal_with_appartment">
+              <MappingFragment StoreEntitySet="deal_with_appartment">
+                <ScalarProperty Name="ID_deal" ColumnName="ID_deal" />
+                <ScalarProperty Name="cadastral_number" ColumnName="cadastral_number" />
+                <ScalarProperty Name="area_ap" ColumnName="area_ap" />
+                <ScalarProperty Name="number_of_balconies" ColumnName="number_of_balconies" />
+                <ScalarProperty Name="number_of_rooms" ColumnName="number_of_rooms" />
+                <ScalarProperty Name="customer" ColumnName="customer" />
+                <ScalarProperty Name="saller" ColumnName="saller" />
+                <ScalarProperty Name="price" ColumnName="price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="deal_with_house">
+            <EntityTypeMapping TypeName="Estate_agancyModel.deal_with_house">
+              <MappingFragment StoreEntitySet="deal_with_house">
+                <ScalarProperty Name="ID_deal" ColumnName="ID_deal" />
+                <ScalarProperty Name="cadastral_number" ColumnName="cadastral_number" />
+                <ScalarProperty Name="number_of_rooms" ColumnName="number_of_rooms" />
+                <ScalarProperty Name="number_of_floor" ColumnName="number_of_floor" />
+                <ScalarProperty Name="area_h" ColumnName="area_h" />
+                <ScalarProperty Name="customer" ColumnName="customer" />
+                <ScalarProperty Name="saller" ColumnName="saller" />
+                <ScalarProperty Name="price" ColumnName="price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="house">
+            <EntityTypeMapping TypeName="Estate_agancyModel.house">
+              <MappingFragment StoreEntitySet="house">
+                <ScalarProperty Name="ID_house" ColumnName="ID_house" />
+                <ScalarProperty Name="number_of_rooms" ColumnName="number_of_rooms" />
+                <ScalarProperty Name="number_of_floor" ColumnName="number_of_floor" />
+                <ScalarProperty Name="area_h" ColumnName="area_h" />
+                <ScalarProperty Name="area_plot" ColumnName="area_plot" />
+                <ScalarProperty Name="owner_h" ColumnName="owner_h" />
+                <ScalarProperty Name="address_h" ColumnName="address_h" />
+                <ScalarProperty Name="cadastral_number" ColumnName="cadastral_number" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="state_h" ColumnName="state_h" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="worker_c">
+            <EntityTypeMapping TypeName="Estate_agancyModel.worker_c">
+              <MappingFragment StoreEntitySet="worker_c">
+                <ScalarProperty Name="ID_worker" ColumnName="ID_worker" />
+                <ScalarProperty Name="full_name" ColumnName="full_name" />
+                <ScalarProperty Name="position" ColumnName="position" />
+                <ScalarProperty Name="password_w" ColumnName="password_w" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Add_apartment" FunctionName="Хранилище Estate_agancyModel.Add_apartment" />
+          <FunctionImportMapping FunctionImportName="Add_client" FunctionName="Хранилище Estate_agancyModel.Add_client" />
+          <FunctionImportMapping FunctionImportName="Add_deal_with_appartent" FunctionName="Хранилище Estate_agancyModel.Add_deal_with_appartent" />
+          <FunctionImportMapping FunctionImportName="Add_deal_with_house" FunctionName="Хранилище Estate_agancyModel.Add_deal_with_house" />
+          <FunctionImportMapping FunctionImportName="Add_house" FunctionName="Хранилище Estate_agancyModel.Add_house" />
+          <FunctionImportMapping FunctionImportName="Add_worker" FunctionName="Хранилище Estate_agancyModel.Add_worker" />
+          <FunctionImportMapping FunctionImportName="Delete_apaetament" FunctionName="Хранилище Estate_agancyModel.Delete_apaetament" />
+          <FunctionImportMapping FunctionImportName="Delete_client" FunctionName="Хранилище Estate_agancyModel.Delete_client" />
+          <FunctionImportMapping FunctionImportName="Delete_deal_with_appartment" FunctionName="Хранилище Estate_agancyModel.Delete_deal_with_appartment" />
+          <FunctionImportMapping FunctionImportName="Delete_deal_with_house" FunctionName="Хранилище Estate_agancyModel.Delete_deal_with_house" />
+          <FunctionImportMapping FunctionImportName="Delete_house" FunctionName="Хранилище Estate_agancyModel.Delete_house" />
+          <FunctionImportMapping FunctionImportName="Delete_worker" FunctionName="Хранилище Estate_agancyModel.Delete_worker" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -86,18 +86,19 @@ namespace SQl_Course_project
             fill_comboboxes();
         }
 
+
+
+
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             MainWindow w = new MainWindow();
             w.Show();
             Close();
         }
-
         private void Type_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (type.SelectedValue.ToString() == "Квартира")
@@ -114,7 +115,6 @@ namespace SQl_Course_project
             }
 
         }
-
         private void Type_d(object sender, SelectionChangedEventArgs e)
         {
             if (kv.SelectedValue.ToString() == "Макс." && type.SelectedValue.ToString() == "Квартира")
@@ -154,7 +154,6 @@ namespace SQl_Course_project
                 }
             }
         }
-
         private void Pl_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (pl.SelectedValue.ToString() == "Макс." && type.SelectedValue.ToString() == "Квартира")
@@ -194,7 +193,6 @@ namespace SQl_Course_project
                 }
             }
         }
-
         private void Bol_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (bol.SelectedValue.ToString() == "Макс." && type.SelectedValue.ToString() == "Квартира")
@@ -234,7 +232,6 @@ namespace SQl_Course_project
                 }
             }
         }
-
         private void Pr_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (pr.SelectedValue.ToString() == "Макс." && type.SelectedValue.ToString() == "Квартира")
@@ -274,7 +271,6 @@ namespace SQl_Course_project
 
             }
         }
-
         private void Fl_h_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (fl_h.SelectedValue.ToString() == "Макс." && type.SelectedValue.ToString() == "Дом")
@@ -314,7 +310,6 @@ namespace SQl_Course_project
 
             }
         }
-
         private void Type_h(object sender, SelectionChangedEventArgs e)
         {
             if (kv_h.SelectedValue.ToString() == "Макс." && type.SelectedValue.ToString() == "Дом")
@@ -354,7 +349,6 @@ namespace SQl_Course_project
 
             }
         }
-
         private void Pl_SelectionChange_h(object sender, SelectionChangedEventArgs e)
         {
             if (pl_h.SelectedValue.ToString() == "Макс." && type.SelectedValue.ToString() == "Дом")
@@ -431,7 +425,6 @@ namespace SQl_Course_project
                 }
             }
         }
-
         private void Pr_h_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (pr_h.SelectedValue.ToString() == "Макс." && type.SelectedValue.ToString() == "Дом")
@@ -469,6 +462,27 @@ namespace SQl_Course_project
                     str = "";
                 }
             }
+        }
+
+        private void Del_Click(object sender, RoutedEventArgs e)
+        {
+            string[] ord = list.SelectedValue.ToString().Split('\t');
+            //for(int i =0;i<ord.Length;i++)
+            //{
+            //    MessageBox.Show(i + " "+ord[i]+"/n");
+            //}
+
+            using (Estate_agancyEntities1 db = new Estate_agancyEntities1())
+            {
+                db.Add_deal_with_appartent(Convert.ToInt32(ord[13]),Convert.ToDouble(ord[1]),Convert.ToInt32(ord[5]),Convert.ToInt32(3),client.SelectedValue.ToString(),ord[9],Convert.ToDouble(ord[7]));
+                db.SaveChanges();
+                MessageBox.Show("add");
+            }
+        }
+
+        private void List_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            del.Visibility = Visibility.Visible;
         }
     }
 }

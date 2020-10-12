@@ -112,6 +112,9 @@
     <Compile Include="overview_db.xaml.cs">
       <DependentUpon>overview_db.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Report_from_deal.xaml.cs">
+      <DependentUpon>Report_from_deal.xaml</DependentUpon>
+    </Compile>
     <Compile Include="worker_c.cs">
       <DependentUpon>estate_agancy.tt</DependentUpon>
     </Compile>
@@ -148,6 +151,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="overview_db.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Report_from_deal.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -30,15 +30,16 @@
             </TabItem>
         </TabControl>
         <Button Content="назад" HorizontalAlignment="Left" Margin="707,383,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
-        <Button Content="добавить квартиру" HorizontalAlignment="Left" Margin="10,33,0,0" VerticalAlignment="Top" Width="114" Height="21" Click="Button_Click_1"/>
-        <Button Content= "добавить дом" HorizontalAlignment="Left" Margin="10,59,0,0" VerticalAlignment="Top" Width="114" Click="Button_Click_2"/>
-        <Button Content="добавить клиенты" HorizontalAlignment="Left" Margin="10,84,0,0" VerticalAlignment="Top" Width="114" Click="Button_Click_3"/>
-        <Button Content="добавить рабочего" HorizontalAlignment="Left" Margin="10,109,0,0" VerticalAlignment="Top" Width="114" Click="Button_Click_4"/>
         <Button x:Name="del" Visibility="Hidden" Content="удалить" HorizontalAlignment="Left" Margin="49,363,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_5"/>
         <Button x:Name="del2" Visibility="Hidden" Content="удалить" HorizontalAlignment="Left" Margin="49,363,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_6"/>
         <Button x:Name="del3" Visibility="Hidden" Content="удалить" HorizontalAlignment="Left" Margin="49,363,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_7"/>
         <Button x:Name="del4" Visibility="Hidden" Content="удалить" HorizontalAlignment="Left" Margin="49,363,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_8"/>
+        <Grid x:Name="butns" HorizontalAlignment="Left" Height="124" VerticalAlignment="Top" Width="125" Margin="10,21,0,0">
+            <Button Content="добавить квартиру" HorizontalAlignment="Left" Margin="10,7,0,0" VerticalAlignment="Top" Width="114" Height="21" Click="Button_Click_1"/>
+            <Button Content= "добавить дом" HorizontalAlignment="Left" Margin="10,33,0,0" VerticalAlignment="Top" Width="114" Click="Button_Click_2"/>
+            <Button Content="добавить клиенты" HorizontalAlignment="Left" Margin="10,58,0,0" VerticalAlignment="Top" Width="114" Click="Button_Click_3"/>
+            <Button Content="добавить рабочего" HorizontalAlignment="Left" Margin="10,83,0,0" VerticalAlignment="Top" Width="114" Click="Button_Click_4"/>
 
-
+        </Grid>
     </Grid>
 </Window>

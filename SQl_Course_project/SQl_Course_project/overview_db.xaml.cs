@@ -79,6 +79,14 @@ namespace SQl_Course_project
             fill_house();
             fill_clients();
             fill_worker();
+            if (globalTrash.user_status == true)
+            {
+                butns.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                butns.Visibility = Visibility.Hidden;
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

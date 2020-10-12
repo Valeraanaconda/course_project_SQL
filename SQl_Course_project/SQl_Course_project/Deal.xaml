@@ -24,18 +24,18 @@
             <TextBlock HorizontalAlignment="Left" Margin="40,194,0,0" TextWrapping="Wrap" Text="колличество балконов: " VerticalAlignment="Top"/>
             <TextBlock HorizontalAlignment="Left" Margin="139,230,0,0" TextWrapping="Wrap" Text="цена:" VerticalAlignment="Top"/>
         </Grid>
-        <Grid x:Name="sort_grid_h" Visibility="Visible" HorizontalAlignment="Left" Height="355" Margin="-29,-26,0,0" VerticalAlignment="Top" Width="268">
+        <Grid x:Name="sort_grid_h" Visibility="Hidden" HorizontalAlignment="Left" Height="355" Margin="-29,-26,0,0" VerticalAlignment="Top" Width="268">
             <TextBlock HorizontalAlignment="Left" Margin="55,95,0,0" TextWrapping="Wrap" Text="сортировать по:" VerticalAlignment="Top"/>
-            <ComboBox x:Name="kv_h" HorizontalAlignment="Left" Margin="185,115,0,0" VerticalAlignment="Top" Width="51" SelectionChanged="Type_d"/>
+            <ComboBox x:Name="kv_h" HorizontalAlignment="Left" Margin="187,115,0,0" VerticalAlignment="Top" Width="60" SelectionChanged="Type_h"/>
             <TextBlock HorizontalAlignment="Left" Margin="57,121,0,0" TextWrapping="Wrap" Text="количестов комнат:" VerticalAlignment="Top"/>
-            <ComboBox x:Name="pl_h" HorizontalAlignment="Left" Margin="185,169,0,0" VerticalAlignment="Top" Width="51" SelectionChanged="Pl_SelectionChanged"/>
-            <ComboBox x:Name="bol_h" HorizontalAlignment="Left" Margin="187,196,0,0" VerticalAlignment="Top" Width="49"/>
-            <ComboBox x:Name="pr_h" HorizontalAlignment="Left" Margin="185,223,0,0" VerticalAlignment="Top" Width="49"/>
+            <ComboBox x:Name="pl_h" HorizontalAlignment="Left" Margin="185,169,0,0" VerticalAlignment="Top" Width="62" SelectionChanged="Pl_SelectionChange_h"/>
+            <ComboBox x:Name="pl_pt_h" HorizontalAlignment="Left" Margin="185,196,0,0" VerticalAlignment="Top" Width="62" SelectionChanged="Pl_pt_h_SelectionChanged"/>
+            <ComboBox x:Name="pr_h" HorizontalAlignment="Left" Margin="185,223,0,0" VerticalAlignment="Top" Width="62" SelectionChanged="Pr_h_SelectionChanged"/>
             <TextBlock HorizontalAlignment="Left" Margin="73,169,0,0" TextWrapping="Wrap" Text="площадь жилья: " VerticalAlignment="Top"/>
             <TextBlock HorizontalAlignment="Left" Margin="66,196,0,0" TextWrapping="Wrap" Text="площадь участка: " VerticalAlignment="Top"/>
-            <ComboBox x:Name="pr_h_Copy" HorizontalAlignment="Left" Margin="185,142,0,0" VerticalAlignment="Top" Width="49"/>
+            <ComboBox x:Name="fl_h" HorizontalAlignment="Left" Margin="187,142,0,0" VerticalAlignment="Top" Width="60" SelectionChanged="Fl_h_SelectionChanged"/>
             <TextBlock HorizontalAlignment="Left" Margin="137,223,0,0" TextWrapping="Wrap" Text="цена:" VerticalAlignment="Top"/>
-            <TextBlock HorizontalAlignment="Left" Margin="51,142,0,0" TextWrapping="Wrap" Text="колличество этажей:" VerticalAlignment="Top"/>
+            <TextBlock HorizontalAlignment="Left" Margin="51,148,0,0" TextWrapping="Wrap" Text="колличество этажей:" VerticalAlignment="Top"/>
         </Grid>
 
     </Grid>

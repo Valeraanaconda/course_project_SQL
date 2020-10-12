@@ -61,6 +61,17 @@ namespace SQl_Course_project
             bol.Items.Add("Мин.");
             pr.Items.Add("Макс.");
             pr.Items.Add("Мин.");
+
+            kv_h.Items.Add("Макс.");
+            kv_h.Items.Add("Мин.");
+            fl_h.Items.Add("Макс.");
+            fl_h.Items.Add("Мин.");
+            pl_h.Items.Add("Макс.");
+            pl_h.Items.Add("Мин.");
+            pl_pt_h.Items.Add("Макс.");
+            pl_pt_h.Items.Add("Мин.");
+            pr_h.Items.Add("Макс.");
+            pr_h.Items.Add("Мин.");
         }
         public Deal()
         {
@@ -93,10 +104,12 @@ namespace SQl_Course_project
             {
                 fill_apartaments();
                 sort_grid.Visibility = Visibility.Visible;
+                sort_grid_h.Visibility = Visibility.Hidden;
             }
             else if (type.SelectedValue.ToString() == "Дом")
             {
                 fill_house();
+                sort_grid_h.Visibility = Visibility.Visible;
                 sort_grid.Visibility = Visibility.Hidden;
             }
 
@@ -259,6 +272,202 @@ namespace SQl_Course_project
                     str = "";
                 }
 
+            }
+        }
+
+        private void Fl_h_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (fl_h.SelectedValue.ToString() == "Макс." && type.SelectedValue.ToString() == "Дом")
+            {
+                using (Estate_agancyEntities1 db = new Estate_agancyEntities1())
+                {
+                    list.Items.Clear();
+                    string str = "";
+
+                    var rooms_h = db.house.OrderByDescending(r => r.number_of_floor);
+                    foreach (var item in rooms_h)
+                    {
+                        if (item.state_h == 1) str = "покупка";
+                        if (item.state_h == 2) str = "аренда";
+                        list.Items.Add("площадь жилья: \t" + item.area_h + "\t " + "площадь участка: \t" + item.area_plot + "\t " + "кол. комнат: \t" + item.number_of_rooms + "\t " + "кол. этажей: \t" + item.number_of_floor + "\t " + "цена: \t" + item.price + "\t " + "продавец: \t" + item.owner_h + " \t" + "адресс: \t" + item.address_h + " \t" + "кадастровый номер: \t" + item.cadastral_number + "\t сатус: " + str);
+                    }
+                    str = "";
+                }
+            }
+            if (fl_h.SelectedValue.ToString() == "Мин." && type.SelectedValue.ToString() == "Дом")
+            {
+
+                using (Estate_agancyEntities1 db = new Estate_agancyEntities1())
+                {
+                    list.Items.Clear();
+                    string str = "";
+
+                    var rooms_h = db.house.OrderBy(r => r.number_of_floor);
+                    foreach (var item in rooms_h)
+                    {
+                        if (item.state_h == 1) str = "покупка";
+                        if (item.state_h == 2) str = "аренда";
+                        list.Items.Add("площадь жилья: \t" + item.area_h + "\t " + "площадь участка: \t" + item.area_plot + "\t " + "кол. комнат: \t" + item.number_of_rooms + "\t " + "кол. этажей: \t" + item.number_of_floor + "\t " + "цена: \t" + item.price + "\t " + "продавец: \t" + item.owner_h + " \t" + "адресс: \t" + item.address_h + " \t" + "кадастровый номер: \t" + item.cadastral_number + "\t сатус: " + str);
+                    }
+                    str = "";
+                }
+
+            }
+        }
+
+        private void Type_h(object sender, SelectionChangedEventArgs e)
+        {
+            if (kv_h.SelectedValue.ToString() == "Макс." && type.SelectedValue.ToString() == "Дом")
+            {
+                using (Estate_agancyEntities1 db = new Estate_agancyEntities1())
+                {
+                    list.Items.Clear();
+                    string str = "";
+
+                    var rooms_h = db.house.OrderByDescending(r => r.number_of_rooms);
+                    foreach (var item in rooms_h)
+                    {
+                        if (item.state_h == 1) str = "покупка";
+                        if (item.state_h == 2) str = "аренда";
+                        list.Items.Add("площадь жилья: \t" + item.area_h + "\t " + "площадь участка: \t" + item.area_plot + "\t " + "кол. комнат: \t" + item.number_of_rooms + "\t " + "кол. этажей: \t" + item.number_of_floor + "\t " + "цена: \t" + item.price + "\t " + "продавец: \t" + item.owner_h + " \t" + "адресс: \t" + item.address_h + " \t" + "кадастровый номер: \t" + item.cadastral_number + "\t сатус: " + str);
+                    }
+                    str = "";
+                }
+            }
+            if (kv_h.SelectedValue.ToString() == "Мин." && type.SelectedValue.ToString() == "Дом")
+            {
+
+                using (Estate_agancyEntities1 db = new Estate_agancyEntities1())
+                {
+                    list.Items.Clear();
+                    string str = "";
+
+                    var rooms_h = db.house.OrderBy(r => r.number_of_rooms);
+                    foreach (var item in rooms_h)
+                    {
+                        if (item.state_h == 1) str = "покупка";
+                        if (item.state_h == 2) str = "аренда";
+                        list.Items.Add("площадь жилья: \t" + item.area_h + "\t " + "площадь участка: \t" + item.area_plot + "\t " + "кол. комнат: \t" + item.number_of_rooms + "\t " + "кол. этажей: \t" + item.number_of_floor + "\t " + "цена: \t" + item.price + "\t " + "продавец: \t" + item.owner_h + " \t" + "адресс: \t" + item.address_h + " \t" + "кадастровый номер: \t" + item.cadastral_number + "\t сатус: " + str);
+                    }
+                    str = "";
+                }
+
+            }
+        }
+
+        private void Pl_SelectionChange_h(object sender, SelectionChangedEventArgs e)
+        {
+            if (pl_h.SelectedValue.ToString() == "Макс." && type.SelectedValue.ToString() == "Дом")
+            {
+                using (Estate_agancyEntities1 db = new Estate_agancyEntities1())
+                {
+                    list.Items.Clear();
+                    string str = "";
+
+                    var rooms_h = db.house.OrderByDescending(r => r.area_h);
+                    foreach (var item in rooms_h)
+                    {
+                        if (item.state_h == 1) str = "покупка";
+                        if (item.state_h == 2) str = "аренда";
+                        list.Items.Add("площадь жилья: \t" + item.area_h + "\t " + "площадь участка: \t" + item.area_plot + "\t " + "кол. комнат: \t" + item.number_of_rooms + "\t " + "кол. этажей: \t" + item.number_of_floor + "\t " + "цена: \t" + item.price + "\t " + "продавец: \t" + item.owner_h + " \t" + "адресс: \t" + item.address_h + " \t" + "кадастровый номер: \t" + item.cadastral_number + "\t сатус: " + str);
+                    }
+                    str = "";
+                }
+            }
+            if (pl_h.SelectedValue.ToString() == "Мин." && type.SelectedValue.ToString() == "Дом")
+            {
+
+                using (Estate_agancyEntities1 db = new Estate_agancyEntities1())
+                {
+                    list.Items.Clear();
+                    string str = "";
+
+                    var rooms_h = db.house.OrderBy(r => r.area_h);
+                    foreach (var item in rooms_h)
+                    {
+                        if (item.state_h == 1) str = "покупка";
+                        if (item.state_h == 2) str = "аренда";
+                        list.Items.Add("площадь жилья: \t" + item.area_h + "\t " + "площадь участка: \t" + item.area_plot + "\t " + "кол. комнат: \t" + item.number_of_rooms + "\t " + "кол. этажей: \t" + item.number_of_floor + "\t " + "цена: \t" + item.price + "\t " + "продавец: \t" + item.owner_h + " \t" + "адресс: \t" + item.address_h + " \t" + "кадастровый номер: \t" + item.cadastral_number + "\t сатус: " + str);
+                    }
+                    str = "";
+                }
+            }
+        }
+        private void Pl_pt_h_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (pl_pt_h.SelectedValue.ToString() == "Макс." && type.SelectedValue.ToString() == "Дом")
+            {
+                using (Estate_agancyEntities1 db = new Estate_agancyEntities1())
+                {
+                    list.Items.Clear();
+                    string str = "";
+
+                    var rooms_h = db.house.OrderByDescending(r => r.area_plot);
+                    foreach (var item in rooms_h)
+                    {
+                        if (item.state_h == 1) str = "покупка";
+                        if (item.state_h == 2) str = "аренда";
+                        list.Items.Add("площадь жилья: \t" + item.area_h + "\t " + "площадь участка: \t" + item.area_plot + "\t " + "кол. комнат: \t" + item.number_of_rooms + "\t " + "кол. этажей: \t" + item.number_of_floor + "\t " + "цена: \t" + item.price + "\t " + "продавец: \t" + item.owner_h + " \t" + "адресс: \t" + item.address_h + " \t" + "кадастровый номер: \t" + item.cadastral_number + "\t сатус: " + str);
+                    }
+                    str = "";
+                }
+            }
+            if (pl_pt_h.SelectedValue.ToString() == "Мин." && type.SelectedValue.ToString() == "Дом")
+            {
+
+                using (Estate_agancyEntities1 db = new Estate_agancyEntities1())
+                {
+                    list.Items.Clear();
+                    string str = "";
+
+                    var rooms_h = db.house.OrderBy(r => r.area_plot);
+                    foreach (var item in rooms_h)
+                    {
+                        if (item.state_h == 1) str = "покупка";
+                        if (item.state_h == 2) str = "аренда";
+                        list.Items.Add("площадь жилья: \t" + item.area_h + "\t " + "площадь участка: \t" + item.area_plot + "\t " + "кол. комнат: \t" + item.number_of_rooms + "\t " + "кол. этажей: \t" + item.number_of_floor + "\t " + "цена: \t" + item.price + "\t " + "продавец: \t" + item.owner_h + " \t" + "адресс: \t" + item.address_h + " \t" + "кадастровый номер: \t" + item.cadastral_number + "\t сатус: " + str);
+                    }
+                    str = "";
+                }
+            }
+        }
+
+        private void Pr_h_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (pr_h.SelectedValue.ToString() == "Макс." && type.SelectedValue.ToString() == "Дом")
+            {
+                using (Estate_agancyEntities1 db = new Estate_agancyEntities1())
+                {
+                    list.Items.Clear();
+                    string str = "";
+
+                    var rooms_h = db.house.OrderByDescending(r => r.price);
+                    foreach (var item in rooms_h)
+                    {
+                        if (item.state_h == 1) str = "покупка";
+                        if (item.state_h == 2) str = "аренда";
+                        list.Items.Add("площадь жилья: \t" + item.area_h + "\t " + "площадь участка: \t" + item.area_plot + "\t " + "кол. комнат: \t" + item.number_of_rooms + "\t " + "кол. этажей: \t" + item.number_of_floor + "\t " + "цена: \t" + item.price + "\t " + "продавец: \t" + item.owner_h + " \t" + "адресс: \t" + item.address_h + " \t" + "кадастровый номер: \t" + item.cadastral_number + "\t сатус: " + str);
+                    }
+                    str = "";
+                }
+            }
+            if (pr_h.SelectedValue.ToString() == "Мин." && type.SelectedValue.ToString() == "Дом")
+            {
+
+                using (Estate_agancyEntities1 db = new Estate_agancyEntities1())
+                {
+                    list.Items.Clear();
+                    string str = "";
+
+                    var rooms_h = db.house.OrderBy(r => r.price);
+                    foreach (var item in rooms_h)
+                    {
+                        if (item.state_h == 1) str = "покупка";
+                        if (item.state_h == 2) str = "аренда";
+                        list.Items.Add("площадь жилья: \t" + item.area_h + "\t " + "площадь участка: \t" + item.area_plot + "\t " + "кол. комнат: \t" + item.number_of_rooms + "\t " + "кол. этажей: \t" + item.number_of_floor + "\t " + "цена: \t" + item.price + "\t " + "продавец: \t" + item.owner_h + " \t" + "адресс: \t" + item.address_h + " \t" + "кадастровый номер: \t" + item.cadastral_number + "\t сатус: " + str);
+                    }
+                    str = "";
+                }
             }
         }
     }

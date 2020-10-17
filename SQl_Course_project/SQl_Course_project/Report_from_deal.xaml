@@ -8,7 +8,8 @@
         Title="Report_from_deal" Height="450" Width="800">
     <Grid>
         <Button Content="назад" HorizontalAlignment="Left" Margin="24,379,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
-        <ListBox x:Name="list" HorizontalAlignment="Left" Height="320" Margin="150,10,0,0" VerticalAlignment="Top" Width="632"/>
+        <ListBox x:Name="list" HorizontalAlignment="Left" Height="320" Margin="150,10,0,0" VerticalAlignment="Top" Width="632" SelectionChanged="List_SelectionChanged"/>
+        <Button Content="печатать отчёт" HorizontalAlignment="Left" Margin="682,335,0,0" VerticalAlignment="Top" Width="100" Click="Button_Click_1"/>
 
     </Grid>
 </Window>

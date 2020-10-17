@@ -22,7 +22,7 @@ namespace SQl_Course_project
         public Add_house()
         {
             InitializeComponent();
-            state_h.Items.Add("продажа");
+            state_h.Items.Add("Продажа");
             state_h.Items.Add("Здача в аренду");
         }
 
